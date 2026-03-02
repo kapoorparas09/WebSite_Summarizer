@@ -3,7 +3,7 @@ from core.scraper import extract_text_from_url
 from core.summarizer import summarize
 from config import DEFAULT_MODEL
 
-st.set_page_config(page_title="WebIntel LLM", layout="wide")
+st.set_page_config(page_title="WebSite Summarizer", layout="wide")
 
 # Force clean white UI
 st.markdown("""
@@ -19,7 +19,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("WEBINTEL LLM – WEBSITE REPORT GENERATOR")
+st.title("WebSite Summarizer – WEBSITE REPORT GENERATOR")
 
 url = st.text_input("Enter Website URL")
 pages = st.slider("Summary Length (Pages)", 1, 10, 2)

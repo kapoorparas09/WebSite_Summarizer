@@ -14,3 +14,8 @@ Offline Website Summarization Tool powered by Ollama + DeepSeek.
 ## Run
 
 streamlit run app.py
+
+
+## WebInterface for the Website summarizer
+
+![alt text](Interface2.png)
