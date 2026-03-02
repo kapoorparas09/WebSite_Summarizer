@@ -1,0 +1,4 @@
+OLLAMA_BASE_URL = "http://localhost:11434/v1"
+DEFAULT_MODEL = "deepseek-r1:1.5b"
+MAX_INPUT_CHARS = 15000
+WORDS_PER_PAGE = 450
