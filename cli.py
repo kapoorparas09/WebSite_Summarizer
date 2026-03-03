@@ -1,25 +1,33 @@
 import argparse
 from core.scraper import extract_text_from_url
+from core.document_loader import load_document
 from core.summarizer import summarize
 from utils.file_export import export_txt
 
 def main():
-    parser = argparse.ArgumentParser(description="Website Summarizer CLI")
-    parser.add_argument("--url", required=True)
+    parser = argparse.ArgumentParser(description="WebIntel CLI")
+
+    parser.add_argument("--url", help="Website URL")
+    parser.add_argument("--file", help="Document file path")
     parser.add_argument("--pages", type=int, default=2)
 
     args = parser.parse_args()
 
-    print("Fetching website...")
-    text = extract_text_from_url(args.url)
+    if args.url:
+        text = extract_text_from_url(args.url)
 
-    print("Generating summary...")
+    elif args.file:
+        with open(args.file, "rb") as f:
+            text = load_document(f)
+
+    else:
+        print("Provide either --url or --file")
+        return
+
     summary = summarize(text, args.pages)
-
     export_txt(summary)
 
-    print("\nSummary saved as summary.txt\n")
-    print(summary)
+    print("Summary saved as summary.txt")
 
 if __name__ == "__main__":
     main()
